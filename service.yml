@@ -1,0 +1,24 @@
+name: aws-lb-controller
+title: AWS Load Balancer controller
+type: infrastructure
+icon: aws-lb-controller
+scalable: false
+hostname: eks-lb-controller
+containers:
+  - name: aws-load-balaner-controller
+  
+helm:
+  name: aws-lb-controller
+  source: https://aws.github.io/eks-charts
+  chart: eks/aws-load-balancer-controller
+  version: 1.7.1
+  configurations:
+  - name: aws-lb-controller
+    annotations: deploymentAnnotations
+    labels: podLabels
+    resources: resources    
+  values: 
+  - name: serviceAccount.create
+    value: false
+  - name: serviceAccount.name
+    value: aws-load-balancer-controller
