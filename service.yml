@@ -18,7 +18,6 @@ helm:
     labels: podLabels
     resources: resources    
   values: 
-  - name: serviceAccount.create
-    value: false
-  - name: serviceAccount.name
-    value: aws-load-balancer-controller
+  - name: serviceAccount.annotations
+    value: |
+      {"eks.amazonaws.com/role-arn": "{{wodby_eks_lb_controller_role_arn}}"}
