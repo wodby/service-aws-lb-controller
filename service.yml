@@ -18,6 +18,8 @@ helm:
     labels: podLabels
     resources: resources    
   values: 
+  - name: clusterName
+    value: "{{kubernetes.externalID}}"
   - name: serviceAccount.annotations
     value: |
       {"eks.amazonaws.com/role-arn": "{{wodby_eks_lb_controller_role_arn}}"}
