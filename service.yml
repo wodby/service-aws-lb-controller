@@ -10,7 +10,7 @@ containers:
 helm:
   name: eks
   source: https://aws.github.io/eks-charts
-  chart: eks-charts/aws-load-balancer-controller
+  chart: eks/aws-load-balancer-controller
   version: 1.9.0
   configurations:
   - name: aws-lb-controller
