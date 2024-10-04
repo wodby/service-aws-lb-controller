@@ -8,9 +8,9 @@ containers:
   - name: aws-load-balancer-controller
   
 helm:
-  name: aws-lb-controller
+  name: eks
   source: https://aws.github.io/eks-charts
-  chart: eks/aws-load-balancer-controller
+  chart: eks-charts/aws-load-balancer-controller
   version: 1.9.0
   configurations:
   - name: aws-lb-controller
