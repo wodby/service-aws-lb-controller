@@ -5,7 +5,7 @@ icon: aws-lb-controller
 scalable: false
 hostname: eks-lb-controller
 containers:
-  - name: aws-load-balaner-controller
+  - name: aws-load-balancer-controller
   
 helm:
   name: aws-lb-controller
