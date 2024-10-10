@@ -7,13 +7,17 @@ hostname: eks-lb-controller
 containers:
   - name: aws-load-balancer-controller
 
-endpoints:
-- name: http
-  ports:
-  - name: http
-    number: 9443
-    type: http
-    main: true
+certs:
+- name: webhook
+  days: 36500
+  key:
+    type: rsa
+    length: 4096  
+  secret: 
+  helm:
+    cert: webhookTLS.cert
+    key: webhookTLS.key
+    ca: webhookTLS.caCert
 
 helm:
   name: eks
