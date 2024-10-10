@@ -13,6 +13,9 @@ certs:
   key:
     type: rsa
     length: 4096
+  dns:
+  - aws-load-balancer-webhook-service.{{service.name}}.svc
+  - aws-load-balancer-webhook-service.{{service.name}}.svc.cluster.local
   helm:
     cert: webhookTLS.cert
     key: webhookTLS.key
