@@ -12,8 +12,7 @@ certs:
   days: 36500
   key:
     type: rsa
-    length: 4096  
-  secret: 
+    length: 4096
   helm:
     cert: webhookTLS.cert
     key: webhookTLS.key
