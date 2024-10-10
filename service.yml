@@ -6,7 +6,15 @@ scalable: false
 hostname: eks-lb-controller
 containers:
   - name: aws-load-balancer-controller
-  
+
+endpoints:
+- name: http
+  ports:
+  - name: http
+    number: 9443
+    type: http
+    main: true
+
 helm:
   name: eks
   source: https://aws.github.io/eks-charts
