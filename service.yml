@@ -27,7 +27,7 @@ helm:
   chart: eks/aws-load-balancer-controller
   version: 1.9.0
   configurations:
-  - name: aws-lb-controller
+  - container: aws-load-balancer-controller
     annotations: deploymentAnnotations
     labels: podLabels
     resources: resources    
