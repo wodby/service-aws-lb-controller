@@ -3,7 +3,6 @@ title: AWS Load Balancer controller
 type: infrastructure
 icon: aws-lb-controller
 scalable: false
-hostname: eks-lb-controller
 containers:
   - name: aws-load-balancer-controller
 
