@@ -3,9 +3,6 @@ title: AWS Load Balancer controller
 type: infrastructure
 icon: aws-lb-controller
 scalable: false
-containers:
-  - name: aws-load-balancer-controller
-
 certs:
 - name: webhook
   days: 36500
@@ -25,14 +22,21 @@ helm:
   source: https://aws.github.io/eks-charts
   chart: eks/aws-load-balancer-controller
   version: 1.9.0
-  configurations:
-  - container: aws-load-balancer-controller
-    annotations: deploymentAnnotations
-    labels: podLabels
-    resources: resources    
-  values: 
+  values:
   - name: clusterName
     value: "{{kubernetes.externalID}}"
   - name: serviceAccount.annotations
     value:
       eks.amazonaws.com/role-arn: "{{wodby_eks_lb_controller_role_arn}}"
+workloads:
+- id: main
+  kind: deployment
+  primary: true
+  containers:
+  - name: aws-load-balancer-controller
+
+    helm:
+      resources: resources
+  helm:
+    labels: podLabels
+    annotations: deploymentAnnotations
