@@ -30,7 +30,10 @@ helm:
       eks.amazonaws.com/role-arn: "{{wodby_eks_lb_controller_role_arn}}"
 
 workloads:
-- id: main
+- name: main
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: '{{service.helm.release}}'
   kind: deployment
   primary: true
   helm:
