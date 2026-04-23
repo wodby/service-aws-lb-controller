@@ -28,15 +28,15 @@ helm:
   - name: serviceAccount.annotations
     value:
       eks.amazonaws.com/role-arn: "{{wodby_eks_lb_controller_role_arn}}"
+
 workloads:
 - id: main
   kind: deployment
   primary: true
-  containers:
-  - name: aws-load-balancer-controller
-
-    helm:
-      resources: resources
   helm:
     labels: podLabels
     annotations: deploymentAnnotations
+  containers:
+  - name: aws-load-balancer-controller
+    helm:
+      resources: resources
