@@ -22,6 +22,8 @@ helm:
   source: https://aws.github.io/eks-charts
   chart: eks/aws-load-balancer-controller
   version: 1.9.0
+  valueMappings:
+    strategy: updateStrategy
   values:
   - name: clusterName
     value: "{{kubernetes.externalID}}"
