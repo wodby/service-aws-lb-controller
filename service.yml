@@ -43,5 +43,9 @@ workloads:
     annotations: deploymentAnnotations
   containers:
   - name: aws-load-balancer-controller
+    resources:
+      request:
+        cpu: 10
+        memory: 64
     helm:
       resources: resources
