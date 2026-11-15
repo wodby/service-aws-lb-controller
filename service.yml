@@ -21,7 +21,7 @@ helm:
   name: eks
   source: https://aws.github.io/eks-charts
   chart: eks/aws-load-balancer-controller
-  version: 1.9.0
+  version: 1.17.1
   valueMappings:
     strategy: updateStrategy
   values:
